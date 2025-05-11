@@ -19,7 +19,7 @@ class CartProvider with ChangeNotifier {
 
   void clearCart() {
     _items.clear();
-    notifyListeners();
+    notifyListeners(); // Notifica a UI sobre a mudança
   }
 
   void increaseQuantity(CartItem item) {
@@ -33,6 +33,7 @@ class CartProvider with ChangeNotifier {
       notifyListeners();
     }
   }
+
 }
 
 class CartItem {

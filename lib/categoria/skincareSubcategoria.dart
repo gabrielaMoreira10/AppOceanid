@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../main.dart'; // Página inicial (Home)
 import '../login/loginOceanid.dart'; // Página de login
 import 'categorias_page.dart'; // Página de categorias
+import '../detalhes.dart'; // Página de detalhes do produto (crie essa tela também)
 
 // 🧴 Tela principal de cuidados com a pele e suas subcategorias
 class SkinCareSubcategoriesPage extends StatelessWidget {
@@ -11,7 +12,6 @@ class SkinCareSubcategoriesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // 🔥 Mapa contendo as subcategorias e seus produtos
     final subcategories = {
       'Sabonete Facial': [
         ['assets/images/hellok.png', 'Sabonete 1'],
@@ -83,7 +83,6 @@ class SkinCareSubcategoriesPage extends StatelessWidget {
               ),
               const SizedBox(height: 12),
 
-              //  Gera dinamicamente as subcategorias de cuidados com a pele
               ...subcategories.entries.map((entry) {
                 final subcategory = entry.key;
                 final products = entry.value;
@@ -117,13 +116,41 @@ class SkinCareSubcategoriesPage extends StatelessWidget {
                       child: Row(
                         children: [
                           ...products.map((product) {
-                            return Container(
-                              margin: const EdgeInsets.only(right: 16),
-                              child: Image.asset(
-                                product[0],
-                                width: 100,
-                                height: 120,
-                                fit: BoxFit.cover,
+                            final imagePath = product[0];
+                            final title = product[1];
+
+                            return GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                     builder:
+                                   (context) => ProdutoDetalhesPage(
+                                    nome: product[1],
+                                    imagemAsset: product[0],
+                                    preco: 90.90,
+                                    descricao: 'Um produto incrível para você!',
+                                  ),
+                                ),
+                                );
+                              },
+                              child: Container(
+                                margin: const EdgeInsets.only(right: 16),
+                                child: Column(
+                                  children: [
+                                    Image.asset(
+                                      imagePath,
+                                      width: 100,
+                                      height: 120,
+                                      fit: BoxFit.cover,
+                                    ),
+                                    const SizedBox(height: 4),
+                                    Text(
+                                      title,
+                                      style: const TextStyle(fontSize: 14),
+                                    ),
+                                  ],
+                                ),
                               ),
                             );
                           }).toList(),

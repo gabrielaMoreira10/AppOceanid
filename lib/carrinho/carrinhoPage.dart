@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'carrinhoProvider.dart';
+import 'compra.dart'; // Importando a tela de Checkout
 
-class CartScreen extends StatelessWidget {
+class CartScreen extends StatefulWidget {
   static const double freeShippingThreshold = 150.0;
 
+  @override
+  State<CartScreen> createState() => _CartScreenState();
+}
+
+class _CartScreenState extends State<CartScreen> {
   @override
   Widget build(BuildContext context) {
     final cart = Provider.of<CartProvider>(context);
@@ -58,8 +64,8 @@ class CartScreen extends StatelessWidget {
 
   Widget _buildCartWithItems(BuildContext context, CartProvider cart) {
     double subtotal = cart.subtotal;
-    double progress = (subtotal / freeShippingThreshold).clamp(0.0, 1.0);
-    double amountMissing = (freeShippingThreshold - subtotal).clamp(0.0, double.infinity);
+    double progress = (subtotal / CartScreen.freeShippingThreshold).clamp(0.0, 1.0);
+    double amountMissing = (CartScreen.freeShippingThreshold - subtotal).clamp(0.0, double.infinity);
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -216,12 +222,19 @@ class CartScreen extends StatelessWidget {
             minimumSize: Size(double.infinity, 50),
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           ),
-          onPressed: () {},
+          onPressed: () {
+            // Navegar para a tela de checkout
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => CheckoutScreen()),
+            );
+          },
           icon: Icon(Icons.shopping_bag_outlined, color: Colors.black),
           label: Text("Comprar", style: TextStyle(color: Colors.black)),
         ),
         SizedBox(height: 8),
       ],
     );
-  }
+
+}
 }

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../main.dart'; // Página inicial (Home)
 import '../login/loginOceanid.dart'; // Página de login
 import 'categorias_page.dart'; // Página de categorias
+import '../detalhes.dart'; // Página de detalhes
 
 // 💇‍♀️ Tela principal de cuidados capilares e suas subcategorias
 class HairCareSubcategoriesPage extends StatelessWidget {
@@ -117,13 +118,29 @@ class HairCareSubcategoriesPage extends StatelessWidget {
                       child: Row(
                         children: [
                           ...products.map((product) {
-                            return Container(
-                              margin: const EdgeInsets.only(right: 16),
-                              child: Image.asset(
-                                product[0],
-                                width: 100,
-                                height: 120,
-                                fit: BoxFit.cover,
+                            return GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder:
+                                   (context) => ProdutoDetalhesPage(
+                                    nome: product[1],
+                                    imagemAsset: product[0],
+                                    preco: 90.90,
+                                    descricao: 'Um produto incrível para você!',
+                                  ),
+                                  ),
+                                );
+                              },
+                              child: Container(
+                                margin: const EdgeInsets.only(right: 16),
+                                child: Image.asset(
+                                  product[0],
+                                  width: 100,
+                                  height: 120,
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                             );
                           }).toList(),

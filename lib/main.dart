@@ -9,13 +9,17 @@ import 'carrinho/carrinhoPage.dart'; //  Página do carrinho
 import 'buscar.dart'; // Página de busca
 import 'favorito/favoritos.dart'; // Página de favoritos
 import 'favorito/favoritosProvider.dart'; // provider de favoritos
+import 'favorito/favoritesProvider.dart'; 
 
 void main() {
   runApp(
     MultiProvider(
-      
-      providers: [ChangeNotifierProvider(create: (_) => CartProvider()),
-      ChangeNotifierProvider(create: (_) => FavoritosProvider()),],
+      providers: [
+        ChangeNotifierProvider(create: (_) => CartProvider()),
+        ChangeNotifierProvider(create: (_) => FavoritosProvider()),
+        ChangeNotifierProvider(create: (_) => FavoritesProvider()),
+      ],
+
       child: const MyApp(),
     ),
   );
@@ -151,7 +155,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   },
                   child: _buildIcon('assets/images/favoritos.png', size: 30),
                 ),
-                
+
                 GestureDetector(
                   onTap: () {
                     Navigator.push(
