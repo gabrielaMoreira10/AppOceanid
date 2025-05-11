@@ -1,0 +1,33 @@
+name: piloto
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.7.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+  provider: ^6.0.5
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/hellok.png
+    - assets/images/favoritos.png
+    - assets/images/concha.png
+    - assets/images/Search.png
+    - assets/images/carrinho.png
+    - assets/images/login.png
+    - assets/images/home.png
+    - assets/images/categoria.png
+    - assets/images/carrinhovazio.png
+    - assets/images/hair.png
+    - assets/images/perfume.png
+    - assets/images/make.png
+    - assets/images/skincare.png
