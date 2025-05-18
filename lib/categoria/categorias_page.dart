@@ -10,6 +10,8 @@ import 'skincareSubcategoria.dart';
 // 📄 Importa a página de skincare
 import 'hairSubcategoria.dart';
 import 'perfumeSubcategoria.dart';
+import '../carrinho/carrinhoPage.dart';
+
 class CategoriesPage extends StatelessWidget {
   const CategoriesPage({super.key});
 
@@ -96,6 +98,7 @@ class CategoriesPage extends StatelessWidget {
             _buildBottomNavItem('assets/images/home.png', context),
             _buildBottomNavItem('assets/images/categoria.png', context),
             _buildBottomNavItem('assets/images/login.png', context),
+            _buildBottomNavItem('assets/images/carrinho.png', context),
           ],
         ),
       ),
@@ -122,6 +125,11 @@ class CategoriesPage extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => const LoginPage()), // <-- Certifique-se que você tem uma LoginPage()
+          );
+        }else if (imagePath == 'assets/images/carrinho.png') {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => CartScreen()),
           );
         }
       },

@@ -5,7 +5,9 @@ import 'loginOceanid.dart'; // Página de login
 import '../categoria/categorias_page.dart'; // Página de categorias
 // import 'favoritos_page.dart'; // <-- crie ou ajuste a página de favoritos
 import 'editarPerfil.dart'; // <-- nova página para editar perfil
-
+import '../carrinho/carrinhoPage.dart';
+import '../favorito/favoritos.dart';
+import 'pedidos.dart';
 class PerfilPage extends StatelessWidget {
   final String nomeUsuario;
 
@@ -64,10 +66,21 @@ class PerfilPage extends StatelessWidget {
                       title: const Text("Wishlist"),
                       trailing: const Icon(Icons.arrow_forward_ios),
                       onTap: () {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(builder: (context) => const ()),
-                        // );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const FavoritosPage()),
+                        );
+                      },
+                    ),
+                    ListTile(
+                      leading: const Icon(Icons.shopping_bag, color: Color.fromARGB(255, 0, 0, 0)),
+                      title: const Text("Meus Pedidos"),
+                      trailing: const Icon(Icons.arrow_forward_ios),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const OrderDetailsPage()),
+                        );
                       },
                     ),
                     const SizedBox(height: 20),
@@ -84,7 +97,7 @@ class PerfilPage extends StatelessWidget {
                         onPressed: () {
                           Navigator.pushAndRemoveUntil(
                             context,
-                            MaterialPageRoute(builder: (context) => const LoginPage()),
+                            MaterialPageRoute(builder: (context) => const HomePageWidget()),
                             (route) => false,
                           );
                         },
@@ -108,6 +121,7 @@ class PerfilPage extends StatelessWidget {
             _buildBottomNavItem('assets/images/home.png', context),
             _buildBottomNavItem('assets/images/categoria.png', context),
             _buildBottomNavItem('assets/images/login.png', context),
+            _buildBottomNavItem('assets/images/carrinho.png', context),
           ],
         ),
       ),
@@ -134,6 +148,11 @@ class PerfilPage extends StatelessWidget {
             context,
             MaterialPageRoute(builder: (context) => const LoginPage()),
             (route) => false,
+          );
+        }else if (imagePath == 'assets/images/carrinho.png') {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => CartScreen()),
           );
         }
       },

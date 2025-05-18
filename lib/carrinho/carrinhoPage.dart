@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'carrinhoProvider.dart';
-import 'compra.dart'; // Importando a tela de Checkout
 
 class CartScreen extends StatefulWidget {
   static const double freeShippingThreshold = 150.0;
@@ -34,10 +33,7 @@ class _CartScreenState extends State<CartScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                "Sacola",
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-              ),
+
               IconButton(
                 icon: Icon(Icons.close, size: 28),
                 onPressed: () => Navigator.pop(context),
@@ -223,14 +219,15 @@ class _CartScreenState extends State<CartScreen> {
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           ),
           onPressed: () {
-            // Navegar para a tela de checkout
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => CheckoutScreen()),
-            );
+           ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('Te direcionando para o site... Aguarde'),
+                        backgroundColor: Color.fromARGB(255, 244, 54, 197),
+                      ),
+                    );
           },
           icon: Icon(Icons.shopping_bag_outlined, color: Colors.black),
-          label: Text("Comprar", style: TextStyle(color: Colors.black)),
+          label: Text("Comprar pelo site", style: TextStyle(color: Colors.black)),
         ),
         SizedBox(height: 8),
       ],

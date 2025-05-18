@@ -5,6 +5,7 @@ import '../main.dart'; // Página inicial (Home)
 import '../login/loginOceanid.dart'; // Página de login
 import 'categorias_page.dart'; // Página de categorias
 import '../detalhes.dart'; // Página de detalhes
+import '../carrinho/carrinhoPage.dart';
 
 // 💇‍♀️ Tela principal de cuidados capilares e suas subcategorias
 class HairCareSubcategoriesPage extends StatelessWidget {
@@ -14,42 +15,42 @@ class HairCareSubcategoriesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     // 🔥 Mapa contendo as subcategorias e seus produtos
     final subcategories = {
-      'Shampoo': [
-        ['assets/images/hellok.png', 'Shampoo 1'],
-        ['assets/images/hellok.png', 'Shampoo 2'],
-        ['assets/images/hellok.png', 'Shampoo 3'],
-      ],
-      'Condicionador': [
-        ['assets/images/hellok.png', 'Condicionador 1'],
-        ['assets/images/hellok.png', 'Condicionador 2'],
-        ['assets/images/hellok.png', 'Condicionador 3'],
-      ],
-      'Máscara de Hidratação': [
-        ['assets/images/hellok.png', 'Máscara 1'],
-        ['assets/images/hellok.png', 'Máscara 2'],
-        ['assets/images/hellok.png', 'Máscara 3'],
-      ],
-      'Leave-in ou Creme para Pentear': [
-        ['assets/images/hellok.png', 'Leave-in 1'],
-        ['assets/images/hellok.png', 'Leave-in 2'],
-        ['assets/images/hellok.png', 'Creme 1'],
-      ],
-      'Óleo Capilar': [
-        ['assets/images/hellok.png', 'Óleo 1'],
-        ['assets/images/hellok.png', 'Óleo 2'],
-        ['assets/images/hellok.png', 'Óleo 3'],
-      ],
-      'Protetor Térmico': [
-        ['assets/images/hellok.png', 'Protetor 1'],
-        ['assets/images/hellok.png', 'Protetor 2'],
-        ['assets/images/hellok.png', 'Protetor 3'],
-      ],
-      'Escova ou Pente': [
-        ['assets/images/hellok.png', 'Escova 1'],
-        ['assets/images/hellok.png', 'Pente 1'],
-        ['assets/images/hellok.png', 'Pente 2'],
-      ],
-    };
+  'Shampoo': [
+    ['assets/images/KérastaseBain.png', 'Kérastase Bain Satin 1 - R\$149,00'],
+    ['assets/images/hellok.png', 'Lola Cosmetics Meu Cacho Minha Vida - R\$29,90'],
+    ['assets/images/hellok.png', 'Dove Hidratação Intensa - R\$12,90'],
+  ],
+  'Condicionador': [
+    ['assets/images/hellok.png', 'Kérastase Lait Vital - R\$159,00'],
+    ['assets/images/hellok.png', 'Lola Cosmetics Meu Cacho Minha Vida - R\$32,90'],
+    ['assets/images/hellok.png', 'Dove Hidratação Intensa - R\$13,90'],
+  ],
+  'Máscara de Hidratação': [
+    ['assets/images/hellok.png', 'Joico Moisture Recovery - R\$189,00'],
+    ['assets/images/hellok.png', 'Novex Óleo de Coco - R\$19,90'],
+    ['assets/images/hellok.png', 'Skala Bomba de Vitaminas - R\$8,90'],
+  ],
+  'Leave-in ou Creme para Pentear': [
+    ['assets/images/hellok.png', 'Moroccanoil Curl Defining Cream - R\$180,00'],
+    ['assets/images/hellok.png', 'Salon Line Cachos dos Sonhos - R\$15,90'],
+    ['assets/images/hellok.png', 'Pantene Creme para Pentear - R\$10,90'],
+  ],
+  'Óleo Capilar': [
+    ['assets/images/hellok.png', 'Moroccanoil Treatment - R\$199,00'],
+    ['assets/images/hellok.png', 'Lola Cosmetics Pinga! - R\$34,90'],
+    ['assets/images/hellok.png', 'Niely Gold Óleo de Argan - R\$12,90'],
+  ],
+  'Protetor Térmico': [
+    ['assets/images/hellok.png', 'Redken Extreme Play Safe - R\$159,00'],
+    ['assets/images/hellok.png', 'Lola Cosmetics Comigo Ninguém Pode - R\$39,90'],
+    ['assets/images/hellok.png', 'Salon Line Meu Liso Térmico - R\$15,90'],
+  ],
+  'Escova ou Pente': [
+    ['assets/images/hellok.png', 'Tangle Teezer Original - R\$89,00'],
+    ['assets/images/hellok.png', 'Marco Boni Escova Raquete - R\$19,90'],
+    ['assets/images/hellok.png', 'Santa Clara Pente de Madeira - R\$9,90'],
+  ],
+};
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -165,6 +166,7 @@ class HairCareSubcategoriesPage extends StatelessWidget {
             _buildBottomNavItem('assets/images/home.png', context),
             _buildBottomNavItem('assets/images/categoria.png', context),
             _buildBottomNavItem('assets/images/login.png', context),
+            _buildBottomNavItem('assets/images/carrinho.png', context),
           ],
         ),
       ),
@@ -190,6 +192,11 @@ class HairCareSubcategoriesPage extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => const LoginPage()),
+          );
+        }else if (imagePath == 'assets/images/carrinho.png') {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => CartScreen()),
           );
         }
       },

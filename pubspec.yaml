@@ -10,10 +10,12 @@ dependencies:
   flutter:
     sdk: flutter
   provider: ^6.0.5
+  intl: ^0.18.1
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
+
 
 flutter:
   uses-material-design: true
@@ -30,4 +32,7 @@ flutter:
     - assets/images/hair.png
     - assets/images/perfume.png
     - assets/images/make.png
-    - assets/images/skincare.png
+    - assets/images/skincare.png    
+    - assets/images/faixa.png
+    - assets/images/KérastaseBain.png
+    

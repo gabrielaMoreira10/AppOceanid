@@ -4,64 +4,65 @@ import '../main.dart'; // Página inicial (Home)
 import '../login/loginOceanid.dart'; // Página de login
 import 'categorias_page.dart'; // Página de categorias
 import '../detalhes.dart'; // Página de detalhes
+import '../carrinho/carrinhoPage.dart';
 
 class MakesSubcategoriesPage extends StatelessWidget {
   const MakesSubcategoriesPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final subcategories = {
-      'Batom': [
-        ['assets/images/hellok.png', 'Batom 1'],
-        ['assets/images/hellok.png', 'Batom 2'],
-        ['assets/images/hellok.png', 'Batom 3'],
-      ],
-      'Base': [
-        ['assets/images/hellok.png', 'Base 1'],
-        ['assets/images/hellok.png', 'Base 2'],
-        ['assets/images/hellok.png', 'Base 3'],
-      ],
-      'Corretivo': [
-        ['assets/images/hellok.png', 'Corretivo 1'],
-        ['assets/images/hellok.png', 'Corretivo 2'],
-        ['assets/images/hellok.png', 'Corretivo 3'],
-      ],
-      'Pó compacto ou translúcido': [
-        ['assets/images/hellok.png', 'Pó 1'],
-        ['assets/images/hellok.png', 'Pó 2'],
-        ['assets/images/hellok.png', 'Pó 3'],
-      ],
-      'Blush': [
-        ['assets/images/hellok.png', 'Blush 1'],
-        ['assets/images/hellok.png', 'Blush 2'],
-        ['assets/images/hellok.png', 'Blush 3'],
-      ],
-      'Iluminador': [
-        ['assets/images/hellok.png', 'Iluminador 1'],
-        ['assets/images/hellok.png', 'Iluminador 2'],
-        ['assets/images/hellok.png', 'Iluminador 3'],
-      ],
-      'Sombras': [
-        ['assets/images/hellok.png', 'Sombras 1'],
-        ['assets/images/hellok.png', 'Sombras 2'],
-        ['assets/images/hellok.png', 'Sombras 3'],
-      ],
-      'Delineador e Lápis de olho': [
-        ['assets/images/hellok.png', 'Delineador 1'],
-        ['assets/images/hellok.png', 'Lápis 1'],
-        ['assets/images/hellok.png', 'Lápis 2'],
-      ],
-      'Máscara de cílios (rímel)': [
-        ['assets/images/hellok.png', 'Rímel 1'],
-        ['assets/images/hellok.png', 'Rímel 2'],
-        ['assets/images/hellok.png', 'Rímel 3'],
-      ],
-      'Pincéis e esponjas': [
-        ['assets/images/hellok.png', 'Pincel 1'],
-        ['assets/images/hellok.png', 'Pincel 2'],
-        ['assets/images/hellok.png', 'Esponja 1'],
-      ],
-    };
+final subcategories = {
+  'Batom': [
+    ['assets/images/hellok.png', 'MAC Ruby Woo - R\$139,00'],
+    ['assets/images/hellok.png', 'Bruna Tavares Líquido Matte - R\$49,90'],
+    ['assets/images/hellok.png', 'Boca Rosa Cremoso - R\$39,90'],
+  ],
+  'Base': [
+    ['assets/images/hellok.png', 'Fenty Beauty Pro Filt\'r - R\$250,00'],
+    ['assets/images/hellok.png', 'Bruna Tavares Base HD Matte - R\$79,90'],
+    ['assets/images/hellok.png', 'Dailus Alta Cobertura - R\$35,90'],
+  ],
+  'Corretivo': [
+    ['assets/images/hellok.png', 'NARS Radiant Creamy - R\$189,00'],
+    ['assets/images/hellok.png', 'Bruna Tavares Líquido - R\$49,90'],
+    ['assets/images/hellok.png', 'Dailus Alta Cobertura - R\$29,90'],
+  ],
+  'Pó compacto ou translúcido': [
+    ['assets/images/hellok.png', 'Laura Mercier Translúcido - R\$279,00'],
+    ['assets/images/hellok.png', 'Bruna Tavares Pó Translúcido - R\$69,90'],
+    ['assets/images/hellok.png', 'Dailus Translúcido Micronizado - R\$29,90'],
+  ],
+  'Blush': [
+    ['assets/images/hellok.png', 'NARS Orgasm - R\$189,00'],
+    ['assets/images/hellok.png', 'Bruna Tavares Compacto - R\$49,90'],
+    ['assets/images/hellok.png', 'Dailus Compacto - R\$19,90'],
+  ],
+  'Iluminador': [
+    ['assets/images/hellok.png', 'Becca Shimmering Skin - R\$199,00'],
+    ['assets/images/hellok.png', 'Boca Rosa Beauty - R\$39,90'],
+    ['assets/images/hellok.png', 'Dailus Compacto - R\$24,90'],
+  ],
+  'Sombras': [
+    ['assets/images/hellok.png', 'Urban Decay Naked - R\$299,00'],
+    ['assets/images/hellok.png', 'Bruna Tavares Paleta - R\$99,90'],
+    ['assets/images/hellok.png', 'Dailus Quinteto - R\$29,90'],
+  ],
+  'Delineador e Lápis de olho': [
+    ['assets/images/hellok.png', 'Kat Von D Tattoo Liner - R\$139,00'],
+    ['assets/images/hellok.png', 'Boca Rosa Delineador Líquido - R\$29,90'],
+    ['assets/images/hellok.png', 'Dailus Lápis Carbon Preto - R\$14,90'],
+  ],
+  'Máscara de cílios (rímel)': [
+    ['assets/images/hellok.png', 'Lancôme Hypnôse - R\$199,00'],
+    ['assets/images/hellok.png', 'Fran Ruby Rose Máscara - R\$39,90'],
+    ['assets/images/hellok.png', 'Dailus Máscara para Cílios - R\$24,90'],
+  ],
+  'Pincéis e esponjas': [
+    ['assets/images/hellok.png', 'Real Techniques Kit - R\$179,00'],
+    ['assets/images/hellok.png', 'Boca Rosa Kit de Pincéis - R\$99,90'],
+    ['assets/images/hellok.png', 'Dailus Pincel + Esponja - R\$39,90'],
+  ],
+};
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -187,6 +188,7 @@ class MakesSubcategoriesPage extends StatelessWidget {
             _buildBottomNavItem('assets/images/home.png', context),
             _buildBottomNavItem('assets/images/categoria.png', context),
             _buildBottomNavItem('assets/images/login.png', context),
+            _buildBottomNavItem('assets/images/carrinho.png', context),
           ],
         ),
       ),
@@ -212,6 +214,11 @@ class MakesSubcategoriesPage extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => const LoginPage()),
+          );
+        }else if (imagePath == 'assets/images/carrinho.png') {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => CartScreen()),
           );
         }
       },

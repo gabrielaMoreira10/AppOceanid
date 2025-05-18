@@ -5,6 +5,7 @@ import '../main.dart'; // Página inicial (Home)
 import '../login/loginOceanid.dart'; // Página de login
 import 'categorias_page.dart'; // Página de categorias
 import '../detalhes.dart'; // Página de detalhes do produto
+import '../carrinho/carrinhoPage.dart';
 
 // Tela principal de perfumes e suas subcategorias
 class FragranceSubcategoriesPage extends StatelessWidget {
@@ -12,28 +13,28 @@ class FragranceSubcategoriesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final subcategories = {
-      'Body Splash': [
-        ['assets/images/hellok.png', 'Body Splash 1'],
-        ['assets/images/hellok.png', 'Body Splash 2'],
-        ['assets/images/hellok.png', 'Body Splash 3'],
-      ],
-      'Eau de Toilette': [
-        ['assets/images/hellok.png', 'Eau de Toilette 1'],
-        ['assets/images/hellok.png', 'Eau de Toilette 2'],
-        ['assets/images/hellok.png', 'Eau de Toilette 3'],
-      ],
-      'Eau de Parfum': [
-        ['assets/images/hellok.png', 'Eau de Parfum 1'],
-        ['assets/images/hellok.png', 'Eau de Parfum 2'],
-        ['assets/images/hellok.png', 'Eau de Parfum 3'],
-      ],
-      'Perfume Sólido': [
-        ['assets/images/hellok.png', 'Perfume Sólido 1'],
-        ['assets/images/hellok.png', 'Perfume Sólido 2'],
-        ['assets/images/hellok.png', 'Perfume Sólido 3'],
-      ],
-    };
+   final subcategories = {
+  'Body Splash': [
+    ['assets/images/hellok.png', 'Victoria\'s Secret Pure Seduction - R\$79,90'],
+    ['assets/images/hellok.png', 'O Boticário Cuide-se Bem Splash - R\$39,90'],
+    ['assets/images/hellok.png', 'Avon Far Away Body Mist - R\$29,90'],
+  ],
+  'Eau de Toilette': [
+    ['assets/images/hellok.png', 'Dior Sauvage EDT - R\$499,00'],
+    ['assets/images/hellok.png', 'O Boticário Lily EDT - R\$139,90'],
+    ['assets/images/hellok.png', 'Natura Ekos Frescor - R\$69,90'],
+  ],
+  'Eau de Parfum': [
+    ['assets/images/hellok.png', 'Chanel Coco Mademoiselle EDP - R\$749,00'],
+    ['assets/images/hellok.png', 'O Boticário Elysée EDP - R\$199,90'],
+    ['assets/images/hellok.png', 'Natura Essencial Exclusivo EDP - R\$159,90'],
+  ],
+  'Perfume Sólido': [
+    ['assets/images/hellok.png', 'Lush Solid Perfume Karma - R\$59,90'],
+    ['assets/images/hellok.png', 'Quintal Sólido Natural - R\$39,90'],
+    ['assets/images/hellok.png', 'BeeBeauty Sólido Floral - R\$19,90'],
+  ],
+};
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -157,6 +158,7 @@ class FragranceSubcategoriesPage extends StatelessWidget {
             _buildBottomNavItem('assets/images/home.png', context),
             _buildBottomNavItem('assets/images/categoria.png', context),
             _buildBottomNavItem('assets/images/login.png', context),
+            _buildBottomNavItem('assets/images/carrinho.png', context),
           ],
         ),
       ),
@@ -182,6 +184,11 @@ class FragranceSubcategoriesPage extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => const LoginPage()),
+          );
+        }else if (imagePath == 'assets/images/carrinho.png') {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => CartScreen()),
           );
         }
       },

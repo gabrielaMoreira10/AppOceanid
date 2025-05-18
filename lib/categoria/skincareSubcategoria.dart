@@ -5,6 +5,7 @@ import '../main.dart'; // Página inicial (Home)
 import '../login/loginOceanid.dart'; // Página de login
 import 'categorias_page.dart'; // Página de categorias
 import '../detalhes.dart'; // Página de detalhes do produto (crie essa tela também)
+import '../carrinho/carrinhoPage.dart';
 
 // 🧴 Tela principal de cuidados com a pele e suas subcategorias
 class SkinCareSubcategoriesPage extends StatelessWidget {
@@ -12,43 +13,44 @@ class SkinCareSubcategoriesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final subcategories = {
-      'Sabonete Facial': [
-        ['assets/images/hellok.png', 'Sabonete 1'],
-        ['assets/images/hellok.png', 'Sabonete 2'],
-        ['assets/images/hellok.png', 'Sabonete 3'],
-      ],
-      'Tônico ou Água Micelar': [
-        ['assets/images/hellok.png', 'Tônico 1'],
-        ['assets/images/hellok.png', 'Tônico 2'],
-        ['assets/images/hellok.png', 'Água Micelar 1'],
-      ],
-      'Hidratante Facial': [
-        ['assets/images/hellok.png', 'Hidratante 1'],
-        ['assets/images/hellok.png', 'Hidratante 2'],
-        ['assets/images/hellok.png', 'Hidratante 3'],
-      ],
-      'Protetor Solar': [
-        ['assets/images/hellok.png', 'Protetor Solar 1'],
-        ['assets/images/hellok.png', 'Protetor Solar 2'],
-        ['assets/images/hellok.png', 'Protetor Solar 3'],
-      ],
-      'Esfoliante': [
-        ['assets/images/hellok.png', 'Esfoliante 1'],
-        ['assets/images/hellok.png', 'Esfoliante 2'],
-        ['assets/images/hellok.png', 'Esfoliante 3'],
-      ],
-      'Sérum': [
-        ['assets/images/hellok.png', 'Sérum 1'],
-        ['assets/images/hellok.png', 'Sérum 2'],
-        ['assets/images/hellok.png', 'Sérum 3'],
-      ],
-      'Demaquilante': [
-        ['assets/images/hellok.png', 'Demaquilante 1'],
-        ['assets/images/hellok.png', 'Demaquilante 2'],
-        ['assets/images/hellok.png', 'Demaquilante 3'],
-      ],
-    };
+final subcategories = {
+  'Sabonete Facial': [
+    ['assets/images/hellok.png', 'La Roche-Posay Effaclar Gel - R\$59,90'],
+    ['assets/images/hellok.png', 'Vichy Normaderm Gel - R\$49,90'],
+    ['assets/images/hellok.png', 'Needs Sabonete Facial - R\$19,90'],
+  ],
+  'Tônico ou Água Micelar': [
+    ['assets/images/hellok.png', 'Bioderma Sensibio H2O - R\$79,90'],
+    ['assets/images/hellok.png', 'Nivea Tônico Adstringente - R\$29,90'],
+    ['assets/images/hellok.png', 'L\'Oréal Água Micelar - R\$19,90'],
+  ],
+  'Hidratante Facial': [
+    ['assets/images/hellok.png', 'Clinique Moisture Surge - R\$149,90'],
+    ['assets/images/hellok.png', 'Nivea Soft - R\$29,90'],
+    ['assets/images/hellok.png', 'Neutrogena Hydro Boost - R\$59,90'],
+  ],
+  'Protetor Solar': [
+    ['assets/images/hellok.png', 'Heliocare 360º Gel Oil-Free - R\$99,90'],
+    ['assets/images/hellok.png', 'La Roche-Posay Anthelios Airlicium - R\$79,90'],
+    ['assets/images/hellok.png', 'Nivea Sun Toque Seco - R\$29,90'],
+  ],
+  'Esfoliante': [
+    ['assets/images/hellok.png', 'Dermotivin Scrub - R\$69,90'],
+    ['assets/images/hellok.png', 'Nivea Esfoliante Facial - R\$19,90'],
+    ['assets/images/hellok.png', 'Needs Esfoliante Suave - R\$12,90'],
+  ],
+  'Sérum': [
+    ['assets/images/hellok.png', 'La Roche-Posay Hyalu B5 - R\$149,90'],
+    ['assets/images/hellok.png', 'Tracta Sérum Anti-Idade - R\$39,90'],
+    ['assets/images/hellok.png', 'Vult Sérum Facial Vitamina C - R\$29,90'],
+  ],
+  'Demaquilante': [
+    ['assets/images/hellok.png', 'Bi-Facil Lancôme - R\$159,90'],
+    ['assets/images/hellok.png', 'L\'Oréal Água Micelar Bifásica - R\$24,90'],
+    ['assets/images/hellok.png', 'Ruby Rose Demaquilante - R\$14,90'],
+  ],
+};
+
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -175,6 +177,7 @@ class SkinCareSubcategoriesPage extends StatelessWidget {
             _buildBottomNavItem('assets/images/home.png', context),
             _buildBottomNavItem('assets/images/categoria.png', context),
             _buildBottomNavItem('assets/images/login.png', context),
+            _buildBottomNavItem('assets/images/carrinho.png', context),
           ],
         ),
       ),
@@ -200,6 +203,11 @@ class SkinCareSubcategoriesPage extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => const LoginPage()),
+          );
+        }else if (imagePath == 'assets/images/carrinho.png') {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => CartScreen()),
           );
         }
       },
