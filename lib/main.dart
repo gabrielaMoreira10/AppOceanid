@@ -348,7 +348,7 @@ Widget _buildProductSection(String sectionTitle, List<List<String>> products) {
                         builder: (context) => ProdutoDetalhesPage(
                           nome: product[1],
                           imagemAsset: product[0],
-                          preco: 47.90,
+                          preco: '47.90',
                           descricao: _gerarDescricao(product[1], sectionTitle),
                         ),
                       ),

@@ -15,40 +15,40 @@ class HairCareSubcategoriesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     // 🔥 Mapa contendo as subcategorias e seus produtos
     final subcategories = {
-  'Shampoo': [
-    ['assets/images/KérastaseBain.png', 'Kérastase Bain Satin 1 - R\$149,00'],
-    ['assets/images/hellok.png', 'Lola Cosmetics Meu Cacho Minha Vida - R\$29,90'],
-    ['assets/images/hellok.png', 'Dove Hidratação Intensa - R\$12,90'],
+'Shampoo': [
+    ['assets/images/KérastaseBain.png', 'Kérastase Bain Satin 1\nR\$149,00'],
+    ['assets/images/hellok.png', 'Lola Cosmetics Meu Cacho Minha Vida\nR\$29,90'],
+    ['assets/images/hellok.png', 'Dove Hidratação Intensa\nR\$12,90'],
   ],
   'Condicionador': [
-    ['assets/images/hellok.png', 'Kérastase Lait Vital - R\$159,00'],
-    ['assets/images/hellok.png', 'Lola Cosmetics Meu Cacho Minha Vida - R\$32,90'],
-    ['assets/images/hellok.png', 'Dove Hidratação Intensa - R\$13,90'],
+    ['assets/images/hellok.png', 'Kérastase Lait Vital\nR\$159,00'],
+    ['assets/images/hellok.png', 'Lola Cosmetics Meu Cacho Minha Vida\nR\$32,90'],
+    ['assets/images/hellok.png', 'Dove Hidratação Intensa\nR\$13,90'],
   ],
   'Máscara de Hidratação': [
-    ['assets/images/hellok.png', 'Joico Moisture Recovery - R\$189,00'],
-    ['assets/images/hellok.png', 'Novex Óleo de Coco - R\$19,90'],
-    ['assets/images/hellok.png', 'Skala Bomba de Vitaminas - R\$8,90'],
+    ['assets/images/hellok.png', 'Joico Moisture Recovery\nR\$189,00'],
+    ['assets/images/hellok.png', 'Novex Óleo de Coco\nR\$19,90'],
+    ['assets/images/hellok.png', 'Skala Bomba de Vitaminas\nR\$8,90'],
   ],
   'Leave-in ou Creme para Pentear': [
-    ['assets/images/hellok.png', 'Moroccanoil Curl Defining Cream - R\$180,00'],
-    ['assets/images/hellok.png', 'Salon Line Cachos dos Sonhos - R\$15,90'],
-    ['assets/images/hellok.png', 'Pantene Creme para Pentear - R\$10,90'],
+    ['assets/images/hellok.png', 'Moroccanoil Curl Defining Cream\nR\$180,00'],
+    ['assets/images/hellok.png', 'Salon Line Cachos dos Sonhos\nR\$15,90'],
+    ['assets/images/hellok.png', 'Pantene Creme para Pentear\nR\$10,90'],
   ],
   'Óleo Capilar': [
-    ['assets/images/hellok.png', 'Moroccanoil Treatment - R\$199,00'],
-    ['assets/images/hellok.png', 'Lola Cosmetics Pinga! - R\$34,90'],
-    ['assets/images/hellok.png', 'Niely Gold Óleo de Argan - R\$12,90'],
+    ['assets/images/hellok.png', 'Moroccanoil Treatment\nR\$199,00'],
+    ['assets/images/hellok.png', 'Lola Cosmetics Pinga!\nR\$34,90'],
+    ['assets/images/hellok.png', 'Niely Gold Óleo de Argan\nR\$12,90'],
   ],
   'Protetor Térmico': [
-    ['assets/images/hellok.png', 'Redken Extreme Play Safe - R\$159,00'],
-    ['assets/images/hellok.png', 'Lola Cosmetics Comigo Ninguém Pode - R\$39,90'],
-    ['assets/images/hellok.png', 'Salon Line Meu Liso Térmico - R\$15,90'],
+    ['assets/images/hellok.png', 'Redken Extreme Play Safe\nR\$159,00'],
+    ['assets/images/hellok.png', 'Lola Cosmetics Comigo Ninguém Pode\nR\$39,90'],
+    ['assets/images/hellok.png', 'Salon Line Meu Liso Térmico\nR\$15,90'],
   ],
   'Escova ou Pente': [
-    ['assets/images/hellok.png', 'Tangle Teezer Original - R\$89,00'],
-    ['assets/images/hellok.png', 'Marco Boni Escova Raquete - R\$19,90'],
-    ['assets/images/hellok.png', 'Santa Clara Pente de Madeira - R\$9,90'],
+    ['assets/images/hellok.png', 'Tangle Teezer Original\nR\$89,00'],
+    ['assets/images/hellok.png', 'Marco Boni Escova Raquete\nR\$19,90'],
+    ['assets/images/hellok.png', 'Santa Clara Pente de Madeira\nR\$9,90'],
   ],
 };
 
@@ -128,19 +128,22 @@ class HairCareSubcategoriesPage extends StatelessWidget {
                                    (context) => ProdutoDetalhesPage(
                                     nome: product[1],
                                     imagemAsset: product[0],
-                                    preco: 90.90,
+                                    preco: product[2],
                                     descricao: 'Um produto incrível para você!',
                                   ),
                                   ),
                                 );
                               },
-                              child: Container(
+                            child: Container(
                                 margin: const EdgeInsets.only(right: 16),
-                                child: Image.asset(
-                                  product[0],
-                                  width: 100,
-                                  height: 120,
-                                  fit: BoxFit.cover,
+                                child: Column(
+                                  children: [
+                                   
+                            Image.asset(product[0], width: 100, height: 120, fit: BoxFit.cover),
+                              const SizedBox(height: 4),
+                              Text(product[1], style: const TextStyle(fontSize: 14)),
+                             Text('R\$ ${(product[2] as double).toStringAsFixed(2)}'),
+                            ],
                                 ),
                               ),
                             );

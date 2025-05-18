@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 // Importa outras telas do seu app
 import '../main.dart'; // Página inicial (Home)
 import '../login/loginOceanid.dart'; // Página de login
@@ -15,24 +14,24 @@ class FragranceSubcategoriesPage extends StatelessWidget {
   Widget build(BuildContext context) {
    final subcategories = {
   'Body Splash': [
-    ['assets/images/hellok.png', 'Victoria\'s Secret Pure Seduction - R\$79,90'],
-    ['assets/images/hellok.png', 'O Boticário Cuide-se Bem Splash - R\$39,90'],
-    ['assets/images/hellok.png', 'Avon Far Away Body Mist - R\$29,90'],
+    ['assets/images/hellok.png', 'Victoria\'s Secret Pure Seduction\nR\$79,90'],
+    ['assets/images/hellok.png', 'O Boticário Cuide-se Bem Splash\nR\$39,90'],
+    ['assets/images/hellok.png', 'Avon Far Away Body Mist\nR\$29,90'],
   ],
   'Eau de Toilette': [
-    ['assets/images/hellok.png', 'Dior Sauvage EDT - R\$499,00'],
-    ['assets/images/hellok.png', 'O Boticário Lily EDT - R\$139,90'],
-    ['assets/images/hellok.png', 'Natura Ekos Frescor - R\$69,90'],
+    ['assets/images/hellok.png', 'Dior Sauvage EDT\nR\$499,00'],
+    ['assets/images/hellok.png', 'O Boticário Lily EDT\nR\$139,90'],
+    ['assets/images/hellok.png', 'Natura Ekos Frescor\nR\$69,90'],
   ],
   'Eau de Parfum': [
-    ['assets/images/hellok.png', 'Chanel Coco Mademoiselle EDP - R\$749,00'],
-    ['assets/images/hellok.png', 'O Boticário Elysée EDP - R\$199,90'],
-    ['assets/images/hellok.png', 'Natura Essencial Exclusivo EDP - R\$159,90'],
+    ['assets/images/hellok.png', 'Chanel Coco Mademoiselle EDP\nR\$749,00'],
+    ['assets/images/hellok.png', 'O Boticário Elysée EDP\nR\$199,90'],
+    ['assets/images/hellok.png', 'Natura Essencial Exclusivo EDP\nR\$159,90'],
   ],
   'Perfume Sólido': [
-    ['assets/images/hellok.png', 'Lush Solid Perfume Karma - R\$59,90'],
-    ['assets/images/hellok.png', 'Quintal Sólido Natural - R\$39,90'],
-    ['assets/images/hellok.png', 'BeeBeauty Sólido Floral - R\$19,90'],
+    ['assets/images/hellok.png', 'Lush Solid Perfume Karma\nR\$59,90'],
+    ['assets/images/hellok.png', 'Quintal Sólido Natural\nR\$39,90'],
+    ['assets/images/hellok.png', 'BeeBeauty Sólido Floral\nR\$19,90'],
   ],
 };
 
@@ -100,9 +99,7 @@ class FragranceSubcategoriesPage extends StatelessWidget {
                       child: Row(
                         children: [
                           ...products.map((product) {
-                            final imagePath = product[0];
-                            final title = product[1];
-
+                  
                             return GestureDetector(
                               onTap: () {
                                 Navigator.push(
@@ -112,7 +109,7 @@ class FragranceSubcategoriesPage extends StatelessWidget {
                                    (context) => ProdutoDetalhesPage(
                                     nome: product[1],
                                     imagemAsset: product[0],
-                                    preco: 90.90,
+                                    preco: product[2],
                                     descricao: 'Um produto incrível para você!',
                                   ),
                                   ),
@@ -122,18 +119,13 @@ class FragranceSubcategoriesPage extends StatelessWidget {
                                 margin: const EdgeInsets.only(right: 16),
                                 child: Column(
                                   children: [
-                                    Image.asset(
-                                      imagePath,
-                                      width: 100,
-                                      height: 120,
-                                      fit: BoxFit.cover,
-                                    ),
-                                    const SizedBox(height: 4),
-                                    Text(
-                                      title,
-                                      style: const TextStyle(fontSize: 14),
-                                    ),
-                                  ],
+                                   
+                              Image.asset(product[0], width: 100, height: 120, fit: BoxFit.cover),
+                              const SizedBox(height: 4),
+                              Text(product[1], style: const TextStyle(fontSize: 14)),
+                             Text('R\$ ${(product[2] as double).toStringAsFixed(2)}'),
+                            ],
+                                    
                                 ),
                               ),
                             );

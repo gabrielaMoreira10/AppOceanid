@@ -6,7 +6,7 @@ import '../buscar.dart';
 class Produto {
   final String nome;
   final String imagem;
-  final double preco;
+  final String preco;
 
   Produto({required this.nome, required this.imagem, required this.preco});
 

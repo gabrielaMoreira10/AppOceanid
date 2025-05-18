@@ -104,7 +104,7 @@ child: Row(
               ),
               const SizedBox(height: 8),
               Text(
-                "R\$${produto.preco.toStringAsFixed(2)}",
+                "R\$${(produto.preco as double).toStringAsFixed(2)}",
                 style: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,

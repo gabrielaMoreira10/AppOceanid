@@ -15,39 +15,39 @@ class SkinCareSubcategoriesPage extends StatelessWidget {
   Widget build(BuildContext context) {
 final subcategories = {
   'Sabonete Facial': [
-    ['assets/images/hellok.png', 'La Roche-Posay Effaclar Gel - R\$59,90'],
-    ['assets/images/hellok.png', 'Vichy Normaderm Gel - R\$49,90'],
-    ['assets/images/hellok.png', 'Needs Sabonete Facial - R\$19,90'],
+    ['assets/images/hellok.png', 'La Roche-Posay Effaclar Gel\nR\$59,90'],
+    ['assets/images/hellok.png', 'Vichy Normaderm Gel\nR\$49,90'],
+    ['assets/images/hellok.png', 'Needs Sabonete Facial\nR\$19,90'],
   ],
   'Tônico ou Água Micelar': [
-    ['assets/images/hellok.png', 'Bioderma Sensibio H2O - R\$79,90'],
-    ['assets/images/hellok.png', 'Nivea Tônico Adstringente - R\$29,90'],
-    ['assets/images/hellok.png', 'L\'Oréal Água Micelar - R\$19,90'],
+    ['assets/images/hellok.png', 'Bioderma Sensibio H2O\nR\$79,90'],
+    ['assets/images/hellok.png', 'Nivea Tônico Adstringente\nR\$29,90'],
+    ['assets/images/hellok.png', 'L\'Oréal Água Micelar\nR\$19,90'],
   ],
   'Hidratante Facial': [
-    ['assets/images/hellok.png', 'Clinique Moisture Surge - R\$149,90'],
-    ['assets/images/hellok.png', 'Nivea Soft - R\$29,90'],
-    ['assets/images/hellok.png', 'Neutrogena Hydro Boost - R\$59,90'],
+    ['assets/images/hellok.png', 'Clinique Moisture Surge\nR\$149,90'],
+    ['assets/images/hellok.png', 'Nivea Soft\nR\$29,90'],
+    ['assets/images/hellok.png', 'Neutrogena Hydro Boost\nR\$59,90'],
   ],
   'Protetor Solar': [
-    ['assets/images/hellok.png', 'Heliocare 360º Gel Oil-Free - R\$99,90'],
-    ['assets/images/hellok.png', 'La Roche-Posay Anthelios Airlicium - R\$79,90'],
-    ['assets/images/hellok.png', 'Nivea Sun Toque Seco - R\$29,90'],
+    ['assets/images/hellok.png', 'Heliocare 360º Gel Oil-Free\nR\$99,90'],
+    ['assets/images/hellok.png', 'La Roche-Posay Anthelios Airlicium\nR\$79,90'],
+    ['assets/images/hellok.png', 'Nivea Sun Toque Seco\nR\$29,90'],
   ],
   'Esfoliante': [
-    ['assets/images/hellok.png', 'Dermotivin Scrub - R\$69,90'],
-    ['assets/images/hellok.png', 'Nivea Esfoliante Facial - R\$19,90'],
-    ['assets/images/hellok.png', 'Needs Esfoliante Suave - R\$12,90'],
+    ['assets/images/hellok.png', 'Dermotivin Scrub\nR\$69,90'],
+    ['assets/images/hellok.png', 'Nivea Esfoliante Facial\nR\$19,90'],
+    ['assets/images/hellok.png', 'Needs Esfoliante Suave\nR\$12,90'],
   ],
   'Sérum': [
-    ['assets/images/hellok.png', 'La Roche-Posay Hyalu B5 - R\$149,90'],
-    ['assets/images/hellok.png', 'Tracta Sérum Anti-Idade - R\$39,90'],
-    ['assets/images/hellok.png', 'Vult Sérum Facial Vitamina C - R\$29,90'],
+    ['assets/images/hellok.png', 'La Roche-Posay Hyalu B5\nR\$149,90'],
+    ['assets/images/hellok.png', 'Tracta Sérum Anti-Idade\nR\$39,90'],
+    ['assets/images/hellok.png', 'Vult Sérum Facial Vitamina C\nR\$29,90'],
   ],
   'Demaquilante': [
-    ['assets/images/hellok.png', 'Bi-Facil Lancôme - R\$159,90'],
-    ['assets/images/hellok.png', 'L\'Oréal Água Micelar Bifásica - R\$24,90'],
-    ['assets/images/hellok.png', 'Ruby Rose Demaquilante - R\$14,90'],
+    ['assets/images/hellok.png', 'Bi-Facil Lancôme\nR\$159,90'],
+    ['assets/images/hellok.png', 'L\'Oréal Água Micelar Bifásica\nR\$24,90'],
+    ['assets/images/hellok.png', 'Ruby Rose Demaquilante\nR\$14,90'],
   ],
 };
 
@@ -118,9 +118,7 @@ final subcategories = {
                       child: Row(
                         children: [
                           ...products.map((product) {
-                            final imagePath = product[0];
-                            final title = product[1];
-
+                         
                             return GestureDetector(
                               onTap: () {
                                 Navigator.push(
@@ -130,7 +128,7 @@ final subcategories = {
                                    (context) => ProdutoDetalhesPage(
                                     nome: product[1],
                                     imagemAsset: product[0],
-                                    preco: 90.90,
+                                    preco:product[2],
                                     descricao: 'Um produto incrível para você!',
                                   ),
                                 ),
@@ -140,18 +138,12 @@ final subcategories = {
                                 margin: const EdgeInsets.only(right: 16),
                                 child: Column(
                                   children: [
-                                    Image.asset(
-                                      imagePath,
-                                      width: 100,
-                                      height: 120,
-                                      fit: BoxFit.cover,
-                                    ),
-                                    const SizedBox(height: 4),
-                                    Text(
-                                      title,
-                                      style: const TextStyle(fontSize: 14),
-                                    ),
-                                  ],
+                                   
+                            Image.asset(product[0], width: 100, height: 120, fit: BoxFit.cover),
+                              const SizedBox(height: 4),
+                              Text(product[1], style: const TextStyle(fontSize: 14)),
+                             Text('R\$ ${(product[2] as double).toStringAsFixed(2)}'),
+                            ],
                                 ),
                               ),
                             );

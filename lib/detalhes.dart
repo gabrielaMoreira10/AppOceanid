@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart'; // Importa o Provider
 // 📄 Importa outras telas do seu app
@@ -11,7 +12,7 @@ import 'favorito/favoritosProvider.dart'; // provider de favoritos
 class ProdutoDetalhesPage extends StatelessWidget {
   final String nome;
   final String imagemAsset;
-  final double preco;
+  final String preco;
   final String descricao;
 
   const ProdutoDetalhesPage({
@@ -96,7 +97,7 @@ class ProdutoDetalhesPage extends StatelessWidget {
               const SizedBox(height: 10),
               // 💵 Preço
               Text(
-                "R\$${preco.toStringAsFixed(2)}",
+                "R\$${(preco as double).toStringAsFixed(2)}",
                 style: const TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
