@@ -15,13 +15,13 @@ class OrderDetailsPage extends StatelessWidget {
           'name': 'Batom MAC Ruby Woo',
           'price': 139.00,
           'quantity': 1,
-          'image': 'assets/images/hellok.png'
+          'image': 'assets/images/batommac.png'
         },
         {
           'name': 'Base Fenty Beauty Pro Filt\'r',
           'price': 250.00,
           'quantity': 1,
-          'image': 'assets/images/hellok.png'
+          'image': 'assets/images/fentybase.jpg'
         },
       ],
       'delivery': 15.00,

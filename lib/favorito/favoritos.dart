@@ -77,7 +77,7 @@ child: Row(
             builder: (context) => ProdutoDetalhesPage(
               nome: produto.nome, 
               imagemAsset: produto.imagem,
-              preco: produto.preco,
+              preco: 52.2,
               descricao: 'Descrição do produto aqui!', // Você pode customizar isso
             ),
           ),
@@ -104,7 +104,7 @@ child: Row(
               ),
               const SizedBox(height: 8),
               Text(
-                "R\$${(produto.preco as double).toStringAsFixed(2)}",
+                "R\$20.30",
                 style: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,

@@ -20,19 +20,4 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/images/hellok.png
-    - assets/images/favoritos.png
-    - assets/images/concha.png
-    - assets/images/Search.png
-    - assets/images/carrinho.png
-    - assets/images/login.png
-    - assets/images/home.png
-    - assets/images/categoria.png
-    - assets/images/carrinhovazio.png
-    - assets/images/hair.png
-    - assets/images/perfume.png
-    - assets/images/make.png
-    - assets/images/skincare.png    
-    - assets/images/faixa.png
-    - assets/images/KérastaseBain.png
-    - assets/images/basebocarosa.jpeg    
+    - assets/images/  

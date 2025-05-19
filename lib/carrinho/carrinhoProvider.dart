@@ -5,7 +5,7 @@ class CartProvider with ChangeNotifier {
 
   List<CartItem> get items => _items;
 
-  String get subtotal => _items.fold('0', (sum, item) => sum + item.price * item.quantity);
+  double get subtotal => _items.fold(0, (sum, item) => sum + item.price * item.quantity);
 
   void addItem(CartItem item) {
     _items.add(item);
@@ -38,7 +38,7 @@ class CartProvider with ChangeNotifier {
 
 class CartItem {
   final String name;
-  final String price;
+  final double price;
   final String imageUrl;
   int quantity;
 

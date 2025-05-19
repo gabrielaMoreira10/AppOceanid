@@ -12,7 +12,7 @@ import 'favorito/favoritosProvider.dart'; // provider de favoritos
 class ProdutoDetalhesPage extends StatelessWidget {
   final String nome;
   final String imagemAsset;
-  final String preco;
+  final double preco;
   final String descricao;
 
   const ProdutoDetalhesPage({
@@ -38,7 +38,7 @@ class ProdutoDetalhesPage extends StatelessWidget {
         actions: [
   Consumer<FavoritosProvider>(
     builder: (context, favoritosProvider, _) {
-      final produtoAtual = Produto(nome: nome, imagem: imagemAsset, preco: preco);
+      final produtoAtual = Produto(nome: nome, imagem: imagemAsset, preco: "74.5");
       final jaFavoritado = favoritosProvider.estaNosFavoritos(produtoAtual);
 
       return IconButton(
@@ -97,7 +97,7 @@ class ProdutoDetalhesPage extends StatelessWidget {
               const SizedBox(height: 10),
               // 💵 Preço
               Text(
-                "R\$${(preco as double).toStringAsFixed(2)}",
+                "R\$${(preco).toStringAsFixed(2)}",
                 style: const TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,

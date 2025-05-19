@@ -1,6 +1,5 @@
 //  Importações de pacotes essenciais do Flutter
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:piloto/categoria/hairSubcategoria.dart';
 import 'package:piloto/categoria/makeSubcategoria.dart';
@@ -89,32 +88,32 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                 // 🔷 Seções de produtos
                 _buildProductSection('Makes', [
                   [
-                    'assets/images/hellok.png',
+                    'assets/images/batomBT.png',
                     'Batom Líquido Matte - Bruna Tavares',
                   ],
-                  ['assets/images/hellok.png', 'Blush Compacto - Vult'],
-                  ['assets/images/hellok.png', 'Corretivo Líquido - Dailus'],
+                  ['assets/images/Blushvult.png', 'Blush Compacto - Vult'],
+                  ['assets/images/corretivodailus.jpg', 'Corretivo Líquido - Dailus'],
                   [
-                    'assets/images/hellok.png',
+                    'assets/images/pobc.png',
                     'Pó Compacto - Boca Rosa Beauty',
                   ],
                 ]),
 
                 _buildProductSection('Skincare', [
-                  ['assets/images/hellok.png', 'Protetor Solar - Needs'],
+                  ['assets/images/protetorneeds.png', 'Protetor Solar - Needs'],
                   [
-                    'assets/images/hellok.png',
+                    'assets/images/demaquilanterb.jpg',
                     'Demaquilante Bifásico - Ruby Rose',
                   ],
-                  ['assets/images/hellok.png', 'Água Micelar - L\'Oréal'],
-                  ['assets/images/hellok.png', 'Sérum Facial - Tracta'],
+                  ['assets/images/lorealagua.jpg', 'Água Micelar - L\'Oréal'],
+                  ['assets/images/serumtracta.jpg', 'Sérum Facial - Tracta'],
                 ]),
 
                 _buildProductSection('Hair', [
-                  ['assets/images/hellok.png', 'Shampoo Nutritivo - Haskell'],
-                  ['assets/images/hellok.png', 'Máscara Capilar - Skala'],
-                  ['assets/images/hellok.png', 'Óleo Capilar - Lola Cosmetics'],
-                  ['assets/images/hellok.png', 'Leave-in Cachos - Salon Line'],
+                  ['assets/images/shamhaskell.jpg', 'Shampoo Nutritivo - Haskell'],
+                  ['assets/images/skalamasc.png', 'Máscara Capilar - Skala'],
+                  ['assets/images/oleosl.png', 'Óleo Capilar - Lola Cosmetics'],
+                  ['assets/images/leaveinsl.png', 'Leave-in Cachos - Salon Line'],
                 ]),
               ],
             ),
@@ -244,32 +243,32 @@ class _HomePageWidgetState extends State<HomePageWidget> {
         child: Row(
           children: [
             _buildCategoryItem(
-              'assets/images/hellok.png',
+              'assets/images/bocarosailu.png',
               'Iluminadores',
               MakesSubcategoriesPage(),
             ),
             _buildCategoryItem(
-              'assets/images/hellok.png',
+              'assets/images/basebocarosa.jpeg',
               'Bases',
               MakesSubcategoriesPage(),
             ),
             _buildCategoryItem(
-              'assets/images/hellok.png',
+              'assets/images/serumlaroche.png',
               'Serum',
               SkinCareSubcategoriesPage(),
             ),
             _buildCategoryItem(
-              'assets/images/hellok.png',
+              'assets/images/larocheps.jpg',
               'Protetor Solar',
               SkinCareSubcategoriesPage(),
             ),
             _buildCategoryItem(
-              'assets/images/hellok.png',
+              'assets/images/kerastasekit.png',
               'Kit capilar',
               HairCareSubcategoriesPage(),
             ),
             _buildCategoryItem(
-              'assets/images/hellok.png',
+              'assets/images/bodysplashobo.jpg',
               'Body Splash',
               FragranceSubcategoriesPage(),
             ),
@@ -348,7 +347,7 @@ Widget _buildProductSection(String sectionTitle, List<List<String>> products) {
                         builder: (context) => ProdutoDetalhesPage(
                           nome: product[1],
                           imagemAsset: product[0],
-                          preco: '47.90',
+                          preco: 47.90,
                           descricao: _gerarDescricao(product[1], sectionTitle),
                         ),
                       ),

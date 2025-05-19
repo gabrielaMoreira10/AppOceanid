@@ -9,60 +9,123 @@ import '../carrinho/carrinhoPage.dart';
 class MakesSubcategoriesPage extends StatelessWidget {
   const MakesSubcategoriesPage({super.key});
 
+  String _gerarDescricao(String nomeProduto, String categoria) {
+    final Map<String, List<String>> templates = {
+      'Batom': [
+        'O $nomeProduto oferece alta pigmentação e duração prolongada para seus lábios.',
+        'Experimente o $nomeProduto para um look marcante e cheio de personalidade.',
+        'Textura incrível e cores vibrantes com o $nomeProduto.'
+      ],
+      'Base': [
+        'O $nomeProduto proporciona cobertura perfeita e acabamento natural.',
+        'Uniformize seu tom de pele com a tecnologia avançada do $nomeProduto.',
+        'Perfeita para todos os tipos de pele, a $nomeProduto garante beleza duradoura.'
+      ],
+      // Adicione descrições para outras categorias conforme necessário
+    };
+    
+    final categoryTemplates = templates[categoria] ?? [
+      'O $nomeProduto é um produto de alta qualidade para realçar sua beleza.',
+      'Descubra a excelência do $nomeProduto em sua rotina de maquiagem.',
+      '$nomeProduto: inovação e performance em um único produto.'
+    ];
+    
+    return categoryTemplates[0];
+  }
+
+  Widget _buildBottomNavItem(String imagePath, BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        if (imagePath == 'assets/images/home.png') {
+          Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(builder: (context) => const HomePageWidget()),
+            (route) => false,
+          );
+        } else if (imagePath == 'assets/images/categoria.png') {
+          Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(builder: (context) => const CategoriesPage()),
+            (route) => false,
+          );
+        } else if (imagePath == 'assets/images/login.png') {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const LoginPage()),
+          );
+        } else if (imagePath == 'assets/images/carrinho.png') {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => CartScreen()),
+          );
+        }
+      },
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(8),
+        child: Image.asset(
+          imagePath,
+          width: 28,
+          height: 28,
+          fit: BoxFit.cover,
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-final subcategories = {
-  'Batom': [
-    ['assets/images/hellok.png', 'MAC Ruby Woo\nR\$139,00'],
-    ['assets/images/hellok.png', 'Bruna Tavares Líquido Matte\nR\$49,90'],
-    ['assets/images/hellok.png', 'Boca Rosa Cremoso\nR\$39,90'],
-  ],
-  'Base': [
-    ['assets/images/hellok.png', 'Fenty Beauty Pro Filt\'r\nR\$250,00'],
-    ['assets/images/hellok.png', 'Bruna Tavares Base HD Matte\nR\$79,90'],
-    ['assets/images/hellok.png', 'Dailus Alta Cobertura\nR\$35,90'],
-  ],
-  'Corretivo': [
-    ['assets/images/hellok.png', 'NARS Radiant Creamy\nR\$189,00'],
-    ['assets/images/hellok.png', 'Bruna Tavares Líquido\nR\$49,90'],
-    ['assets/images/hellok.png', 'Dailus Alta Cobertura\nR\$29,90'],
-  ],
-  'Pó compacto ou translúcido': [
-    ['assets/images/hellok.png', 'Laura Mercier Translúcido\nR\$279,00'],
-    ['assets/images/hellok.png', 'Bruna Tavares Pó Translúcido\nR\$69,90'],
-    ['assets/images/hellok.png', 'Dailus Translúcido Micronizado\nR\$29,90'],
-  ],
-  'Blush': [
-    ['assets/images/hellok.png', 'NARS Orgasm\nR\$189,00'],
-    ['assets/images/hellok.png', 'Bruna Tavares Compacto\nR\$49,90'],
-    ['assets/images/hellok.png', 'Dailus Compacto\nR\$19,90'],
-  ],
-  'Iluminador': [
-    ['assets/images/hellok.png', 'Becca Shimmering Skin\nR\$199,00'],
-    ['assets/images/hellok.png', 'Boca Rosa Beauty\nR\$39,90'],
-    ['assets/images/hellok.png', 'Dailus Compacto\nR\$24,90'],
-  ],
-  'Sombras': [
-    ['assets/images/hellok.png', 'Urban Decay Naked\nR\$299,00'],
-    ['assets/images/hellok.png', 'Bruna Tavares Paleta\nR\$99,90'],
-    ['assets/images/hellok.png', 'Dailus Quinteto\nR\$29,90'],
-  ],
-  'Delineador e Lápis de olho': [
-    ['assets/images/hellok.png', 'Kat Von D Tattoo Liner\nR\$139,00'],
-    ['assets/images/hellok.png', 'Boca Rosa Delineador Líquido\nR\$29,90'],
-    ['assets/images/hellok.png', 'Dailus Lápis Carbon Preto\nR\$14,90'],
-  ],
-  'Máscara de cílios (rímel)': [
-    ['assets/images/hellok.png', 'Lancôme Hypnôse\nR\$199,00'],
-    ['assets/images/hellok.png', 'Fran Ruby Rose Máscara\nR\$39,90'],
-    ['assets/images/hellok.png', 'Dailus Máscara para Cílios\nR\$24,90'],
-  ],
-  'Pincéis e esponjas': [
-    ['assets/images/hellok.png', 'Real Techniques Kit\nR\$179,00'],
-    ['assets/images/hellok.png', 'Boca Rosa Kit de Pincéis\nR\$99,90'],
-    ['assets/images/hellok.png', 'Dailus Pincel + Esponja\nR\$39,90'],
-  ],
-};
+    final subcategories = {
+      'Batom': [
+        ['assets/images/batommac.png', 'MAC Ruby Woo\nR\$139,00'],
+        ['assets/images/batomBT.png', 'Bruna Tavares Líquido Matte\nR\$49,90'],
+        ['assets/images/batombocarosa.png', 'Boca Rosa Cremoso\nR\$39,90'],
+      ],
+      'Base': [
+        ['assets/images/fentybase.jpg', 'Fenty Beauty Pro Filt\'r\nR\$250,00'],
+        ['assets/images/btbase.png', 'Bruna Tavares Base HD Matte\nR\$79,90'],
+        ['assets/images/dailusbase.png', 'Dailus Alta Cobertura\nR\$35,90'],
+      ],
+      'Corretivo': [
+        ['assets/images/corretivonars.jpg', 'NARS Radiant Creamy\nR\$189,00'],
+        ['assets/images/corretivobt.jpg', 'Bruna Tavares Líquido\nR\$49,90'],
+        ['assets/images/corretivodailus.jpg', 'Dailus Alta Cobertura\nR\$29,90'],
+      ],
+      'Pó compacto ou translúcido': [
+        ['assets/images/polaura.jpg', 'Laura Mercier Translúcido\nR\$279,00'],
+        ['assets/images/poBT.jpg', 'Bruna Tavares Pó Translúcido\nR\$69,90'],
+        ['assets/images/podailus.jpg', 'Dailus Translúcido Micronizado\nR\$29,90'],
+      ],
+      'Blush': [
+        ['assets/images/blushnars.jpg', 'NARS Orgasm\nR\$189,00'],
+        ['assets/images/Blushbt.png', 'Bruna Tavares Compacto\nR\$49,90'],
+        ['assets/images/blushdailus.png', 'Dailus Compacto\nR\$19,90'],
+      ],
+      'Iluminador': [
+        ['assets/images/ilubeca.jpg', 'Becca Shimmering Skin\nR\$199,00'],
+        ['assets/images/bocarosailu.png', 'Boca Rosa Beauty\nR\$39,90'],
+        ['assets/images/iludailus.png', 'Dailus solto\nR\$24,90'],
+      ],
+      'Sombras': [
+        ['assets/images/sombranaked.jpeg', 'Urban Decay Naked\nR\$299,00'],
+        ['assets/images/sombrabt.jpeg', 'Bruna Tavares Paleta\nR\$99,90'],
+        ['assets/images/sombradailus.jpeg', 'Dailus quarteto\nR\$29,90'],
+      ],
+      'Delineador e Lápis de olho': [
+        ['assets/images/delineador.jpeg', 'Kat Von D Tattoo Liner\nR\$139,00'],
+        ['assets/images/delineadorglam.jpeg', 'Boca Rosa Delineador Líquido\nR\$29,90'],
+        ['assets/images/lapisdailus.jpeg', 'Dailus Lápis Carbon Preto\nR\$14,90'],
+      ],
+      'Máscara de cílios (rímel)': [
+        ['assets/images/lancome.jpeg', 'Lancôme Hypnôse\nR\$199,00'],
+        ['assets/images/rimelbt.jpeg', 'Fran Ruby Rose Máscara\nR\$39,90'],
+        ['assets/images/rimeldailus.jpeg', 'Dailus Máscara para Cílios\nR\$24,90'],
+      ],
+      'Pincéis e esponjas': [
+        ['assets/images/real.jpeg', 'Real Techniques Kit\nR\$179,00'],
+        ['assets/images/bc.jpeg', 'Boca Rosa Kit de Pincéis\nR\$99,90'],
+        ['assets/images/dailus.jpeg', 'Dailus Pincel + Esponja\nR\$39,90'],
+      ],
+    };
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -130,31 +193,27 @@ final subcategories = {
                       child: Row(
                         children: [
                           ...products.map((product) {
-                          
                             return GestureDetector(
                               onTap: () {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                     builder:
-                                   (context) => ProdutoDetalhesPage(
-                                    nome: product[1],
-                                    imagemAsset: product[0],
-                                    preco: product[2],
-                                    descricao: 'Um produto incrível para você!',
-                                  ),
+                                    builder: (context) => ProdutoDetalhesPage(
+                                      nome: product[1],
+                                      imagemAsset: product[0],
+                                      preco: _extrairPreco(product[1]),
+                                      descricao: _gerarDescricao(product[1].split('\n')[0], subcategory),
+                                    ),
                                   ),
                                 );
                               },
                               child: Container(
                                 margin: const EdgeInsets.only(right: 16),
-                                child: Column(
-                                  children: [
-                                    Image.asset(product[0], width: 100, height: 120, fit: BoxFit.cover),
-                              const SizedBox(height: 4),
-                              Text(product[1], style: const TextStyle(fontSize: 14)),
-                             Text('R\$ ${(product[2] as double).toStringAsFixed(2)}'),
-                            ],
+                                child: Image.asset(
+                                  product[0],
+                                  width: 100,
+                                  height: 120,
+                                  fit: BoxFit.cover,
                                 ),
                               ),
                             );
@@ -186,42 +245,12 @@ final subcategories = {
     );
   }
 
-  Widget _buildBottomNavItem(String imagePath, BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        if (imagePath == 'assets/images/home.png') {
-          Navigator.pushAndRemoveUntil(
-            context,
-            MaterialPageRoute(builder: (context) => const HomePageWidget()),
-            (route) => false,
-          );
-        } else if (imagePath == 'assets/images/categoria.png') {
-          Navigator.pushAndRemoveUntil(
-            context,
-            MaterialPageRoute(builder: (context) => const CategoriesPage()),
-            (route) => false,
-          );
-        } else if (imagePath == 'assets/images/login.png') {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const LoginPage()),
-          );
-        }else if (imagePath == 'assets/images/carrinho.png') {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => CartScreen()),
-          );
-        }
-      },
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(8),
-        child: Image.asset(
-          imagePath,
-          width: 28,
-          height: 28,
-          fit: BoxFit.cover,
-        ),
-      ),
-    );
+  double _extrairPreco(String produtoDescricao) {
+    try {
+      final precoStr = produtoDescricao.split('R\$')[1].replaceAll(',', '.');
+      return double.parse(precoStr);
+    } catch (e) {
+      return 0.0; // Valor padrão caso ocorra algum erro
+    }
   }
 }

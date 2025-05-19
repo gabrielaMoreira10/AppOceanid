@@ -59,7 +59,7 @@ class _CartScreenState extends State<CartScreen> {
   }
 
   Widget _buildCartWithItems(BuildContext context, CartProvider cart) {
-    double subtotal = cart.subtotal as double;
+    double subtotal = cart.subtotal;
     double progress = (subtotal / CartScreen.freeShippingThreshold).clamp(0.0, 1.0);
     double amountMissing = (CartScreen.freeShippingThreshold - subtotal).clamp(0.0, double.infinity);
 
@@ -153,7 +153,7 @@ class _CartScreenState extends State<CartScreen> {
                 children: [
                   Text(item.name, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
                   SizedBox(height: 4),
-                  Text('R\$ ${(item.price as double).toStringAsFixed(2)}', style: TextStyle(fontSize: 14)),
+                  Text('R\$ ${(item.price).toStringAsFixed(2)}', style: TextStyle(fontSize: 14)),
                 ],
               ),
             ),
@@ -181,7 +181,7 @@ class _CartScreenState extends State<CartScreen> {
   }
 
   Widget _buildSummary(CartProvider cart) {
-    double subtotal = cart.subtotal as double;
+    double subtotal = cart.subtotal;
     double delivery = 0;
     double total = subtotal + delivery;
 
